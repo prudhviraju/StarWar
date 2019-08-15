@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+                name="detail"
+                type="com.starwars.flow.detail.viewmodel.DetailViewModel"/>
+    </data>
+
+    <RelativeLayout
+            android:id="@+id/parentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/bg">
+
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                style="@style/ToolbarTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/background_transparent">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/back_arrow"
+                        android:tint="@color/colorPrimary"
+                        android:onClick="@{detail::handleBackClick}"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="@{detail.title}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+                android:id="@+id/container"
+                android:layout_below="@id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+</layout>

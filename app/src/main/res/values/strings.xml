@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StarWars</string>
+    <string name="dashboard">DashBoard</string>
+</resources>

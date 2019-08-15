@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="position" type="Integer"/>
+        <import type="android.view.View"/>
+        <variable
+                name="planet"
+                type="com.starwars.flow.detail.planets.viewmodel.PlanetViewModel"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardBackgroundColor="#00000000"
+            card_view:cardElevation="6dp"
+            android:layout_margin="10dp"
+            card_view:cardPreventCornerOverlap="false">
+
+        <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="250dp">
+            <ImageView
+                    android:id="@+id/photo_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:scaleType="fitXY"
+                    app:imageUrl="@{planet.getPlanetImage(position)}"/>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentBottom="true"
+                    android:background="@android:color/white">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:text="@{planet.getPlanetDetails(position).name}"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
